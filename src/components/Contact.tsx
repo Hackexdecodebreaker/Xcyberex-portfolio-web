@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Mail, Github, Linkedin, Twitter, Send } from "lucide-react";
 import { useState } from "react";
 import { MessageSuccess } from "./MessageSuccess";
+// import emailjs from '@emailjs-com'
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -18,30 +19,30 @@ export function Contact() {
 
     // EmailJS Configuration (Replace with your actual EmailJS credentials)
     // Sign up at https://www.emailjs.com/ to get your credentials
-    const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID"; // Replace with your EmailJS Service ID
-    const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID"; // Replace with your EmailJS Template ID
-    const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; // Replace with your EmailJS Public Key
+    const EMAILJS_SERVICE_ID = "service_y0ffi6c"; // Replace with your EmailJS Service ID
+    const EMAILJS_TEMPLATE_ID = "template_ujd8fyd"; // Replace with your EmailJS Template ID
+    const EMAILJS_PUBLIC_KEY = "HWktpujqNyJPVbSV1"; // Replace with your EmailJS Public Key
 
     try {
       // Using EmailJS to send emails
       // Install: npm install @emailjs/browser
       // Import: import emailjs from '@emailjs/browser';
       
-      // emailjs.send(
-      //   EMAILJS_SERVICE_ID,
-      //   EMAILJS_TEMPLATE_ID,
-      //   {
-      //     from_name: formData.name,
-      //     from_email: formData.email,
-      //     message: formData.message,
-      //     to_email: "fkoomson625@gmail.com",
-      //     subject: "Xcyberex Portfolio request"
-      //   },
-      //   EMAILJS_PUBLIC_KEY
-      // );
+      emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: "fkoomson625@gmail.com",
+          subject: "Xcyberex Portfolio request"
+        },
+        EMAILJS_PUBLIC_KEY
+      );
 
       // Simulate email sending (remove this when using real EmailJS)
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // await new Promise(resolve => setTimeout(resolve, 1000));
 
       // Show success message
       setShowSuccess(true);
